@@ -6,6 +6,12 @@ function App() {
   const [loginstate, setLoginstate] = useState(false)
   const [username, setUsername] = useState(null)
 
+  const buttonText = loginstate ? 'Login' : 'Logout'
+
+
+  function changeLogin() {
+    setLoginstate(true)
+  }
 
   //conditional rendering
   return (
@@ -15,24 +21,10 @@ function App() {
           <h3>{username}</h3> :
           <LoginForm setUsername={setUsername} />
       }
-    </>
-  )
-}
 
-function LoginForm(loginstate) {
-
-  const buttonText = loginstate ? 'Login' : 'Logout'
-
-  function changeLogin(){
-    setLoginstate(true)
-  }
-
-  
-  return (
-    <div>
-      <input/>
+      <input />
       <button onClick={() => changeLogin}>{buttonText}</button>
-    </div>
+    </>
   )
 }
 

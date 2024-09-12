@@ -4,26 +4,29 @@ import { useState } from "react"
 function App() {
 
   const [loginstate, setLoginstate] = useState(false)
-  const [username, setUsername] = useState(null)
+  const [username, setUsername] = useState('')
 
-  const buttonText = loginstate ? 'Login' : 'Logout'
+  const buttonText = loginstate ? 'Logout' : 'Login'
 
 
   function changeLogin() {
-    setLoginstate(true)
+    setLoginstate(!loginstate)
   }
 
-  //conditional rendering
+  function usernameChanged(e){
+    setUsername(e.target.value)
+  }
+
   return (
     <>
-      {
+      {/* {
         username != null ?
           <h3>{username}</h3> :
           <LoginForm setUsername={setUsername} />
-      }
+      } */}
 
-      <input />
-      <button onClick={() => changeLogin}>{buttonText}</button>
+      <input value={username} onChange={usernameChanged}/>
+      <button onClick={changeLogin}>{buttonText}</button>
     </>
   )
 }

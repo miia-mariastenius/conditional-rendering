@@ -13,19 +13,18 @@ function App() {
     setLoginstate(!loginstate)
   }
 
-  function usernameChanged(e){
+  function usernameChanged(e) {
     setUsername(e.target.value)
   }
 
   return (
     <>
-      {/* {
-        username != null ?
-          <h3>{username}</h3> :
-          <LoginForm setUsername={setUsername} />
-      } */}
-
-      <input value={username} onChange={usernameChanged}/>
+      {loginstate &&
+        <h3>Welcome {username}!!</h3>
+      }
+      {!loginstate &&
+        <input value={username} onChange={usernameChanged} />
+      }
       <button onClick={changeLogin}>{buttonText}</button>
     </>
   )

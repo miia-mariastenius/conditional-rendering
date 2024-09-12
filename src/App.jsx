@@ -19,13 +19,19 @@ function App() {
   )
 }
 
-function LoginForm({ setLoginstate }) {
+function LoginForm(loginstate) {
+
+  const buttonText = loginstate ? 'Login' : 'Logout'
+
+  function changeLogin(){
+    setLoginstate(true)
+  }
 
   
   return (
     <div>
       <input/>
-      <button onClick={() => setLoginstate(true)}>Login</button>
+      <button onClick={() => changeLogin}>{buttonText}</button>
     </div>
   )
 }
